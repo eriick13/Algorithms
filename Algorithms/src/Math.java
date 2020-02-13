@@ -9,6 +9,7 @@ public class Math {
 	private int d = 13;
 	private int e = 17;
 	private int f = 10;
+	private int g = 15;
 	private Random r;
 	//private int[] pole;
 
@@ -24,6 +25,7 @@ public class Math {
 		System.out.println(odecti(a, c));
 		System.out.println(zbytekPoDeleni(d, b));
 		System.out.println(Arrays.toString(poleNahodnychCisel(5)));
+		System.out.println(faktorialRekurze(c));
 
 	}
 
@@ -57,6 +59,10 @@ public class Math {
 		return c;
 	}
 
+	/**
+	 * @param a pocet cisel v poli
+	 * @return pole nahodnych cisel
+	 */
 	public int[] poleNahodnychCisel(int a) {
 		if(a <= 0) {
 			 throw new IndexOutOfBoundsException("Index " + a + " is out of bounds!");
@@ -68,6 +74,17 @@ public class Math {
 	    	//System.out.println(pole[i]); // vypise kazdy prvek v poli
 	    }
 	    return pole;
+	}
+	
+	public long faktorialRekurze(int n) {
+		if(n<0)
+			throw new IllegalArgumentException("cislo je zaporne");
+		if(n == 0) {
+			return n = 1;
+		}
+		else {
+			return n * faktorialRekurze(n - 1);
+		}			
 	}
 
 }
