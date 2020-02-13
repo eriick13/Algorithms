@@ -11,7 +11,7 @@ public class Math {
 	private int f = 10;
 	private int g = 15;
 	private Random r;
-	//private int[] pole;
+	// private int[] pole;
 
 	public Math() {
 		System.out.println("Hello World!");
@@ -26,7 +26,7 @@ public class Math {
 		System.out.println(zbytekPoDeleni(d, b));
 		System.out.println(Arrays.toString(poleNahodnychCisel(5)));
 		System.out.println(faktorialRekurze(c));
-
+		System.out.println(faktorial(c));
 	}
 
 	public int secti(int a, int b) {
@@ -60,31 +60,42 @@ public class Math {
 	}
 
 	/**
-	 * @param a pocet cisel v poli
+	 * @param a
+	 *            pocet cisel v poli
 	 * @return pole nahodnych cisel
 	 */
 	public int[] poleNahodnychCisel(int a) {
-		if(a <= 0) {
-			 throw new IndexOutOfBoundsException("Index " + a + " is out of bounds!");
-		 }
-		r = new Random(); 
-	    int[] pole = new int[a];
-	    for (int i = 0; i < pole.length; i++) {
-	    	pole[i] = r.nextInt(); // uklada nahodny prvek v poli
-	    	//System.out.println(pole[i]); // vypise kazdy prvek v poli
-	    }
-	    return pole;
-	}
-	
-	public long faktorialRekurze(int n) {
-		if(n<0)
-			throw new IllegalArgumentException("cislo je zaporne");
-		if(n == 0) {
-			return n = 1;
+		if (a <= 0) {
+			throw new IndexOutOfBoundsException("Index " + a + " is out of bounds!");
 		}
-		else {
-			return n * faktorialRekurze(n - 1);
-		}			
+		r = new Random();
+		int[] pole = new int[a];
+		for (int i = 0; i < pole.length; i++) {
+			pole[i] = r.nextInt(); // uklada nahodny prvek v poli
+			// System.out.println(pole[i]); // vypise kazdy prvek v poli
+		}
+		return pole;
 	}
 
+	public long faktorialRekurze(int n) {
+		if (n < 0)
+			throw new ArithmeticException("n < 0");
+		if (n == 0) {
+			return n = 1;
+		} else {
+			return n * faktorialRekurze(n - 1);
+		}
+	}
+
+	public long faktorial(int n) {
+		if (n < 0) {
+			throw new ArithmeticException("n < 0");
+		}
+		long faktorial = 1;
+		for (int i = 1; i <= n; ++i) {
+			faktorial *= i;
+		}
+		return faktorial;
+
+	}
 }
