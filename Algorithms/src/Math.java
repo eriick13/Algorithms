@@ -11,6 +11,7 @@ public class Math {
 	private int f = 10;
 	private int g = 15;
 	private Random r;
+	int[] array = {4, 8, 15, 16, 23, 42};
 	// private int[] pole;
 
 	public Math() {
@@ -26,7 +27,8 @@ public class Math {
 		System.out.println(zbytekPoDeleni(d, b));
 		System.out.println(Arrays.toString(poleNahodnychCisel(5)));
 		System.out.println(faktorialRekurze(c));
-		System.out.println(faktorial(c));
+		System.out.println(faktorial(c));		
+        System.out.println(findMax(array));
 	}
 
 	public int secti(int a, int b) {
@@ -97,5 +99,15 @@ public class Math {
 		}
 		return faktorial;
 
+	}
+
+	public int findMax(int[] array) {
+		int max = array[0];
+		for (int i = 1; i < array.length; ++i) {
+			if (array[i] > max) {
+				max = array[i];
+			}
+		}
+		return max;
 	}
 }
